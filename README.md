@@ -11,6 +11,9 @@ Blog website to create,read,update and delete blog with <a href="https://en.wiki
 ### Home
 ![Screenshot from 2023-07-14 00-58-08](https://github.com/PuspenduGit/Classic_Blog_Space/assets/77235824/c07f40dc-3948-4484-8ea5-830ffa17aae4)
 
+### Create
+![Screenshot 2023-07-14 135557](https://github.com/PuspenduGit/Classic_Blog_Space/assets/77235824/0676dd7f-4be4-445a-8db3-fe43153e69a9)
+
 ### About
 ![Screenshot 2023-07-14 135111](https://github.com/PuspenduGit/Classic_Blog_Space/assets/77235824/217f8161-0ee7-413d-8776-e3e7d86a2a98)
 
