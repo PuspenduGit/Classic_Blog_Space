@@ -1,5 +1,5 @@
 # Classic_Blog_Space
-Blog website to create,read,update and delete blog with <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a> authentication
+Blog website implementing CRUD operations with <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a> authentication
 
 ### <a href="https://classic-blog-space.netlify.app">Live Link</a>
 
