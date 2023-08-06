@@ -18,8 +18,8 @@ app.use('/',Router)
 
 const url = process.env.BASE_URL
 const PORT = process.env.PORT;
-const username = process.env.DB_USERNAME;
-const password = process.env.DB_PASSWORD;
+const username = process.env.DB_USERNAME ;
+const password = process.env.DB_PASSWORD ;
 
 app.listen(PORT, () =>
   console.log(
@@ -27,6 +27,7 @@ app.listen(PORT, () =>
   )
 );
 
-const URL = `mongodb://${username}:${password}@ac-n7uglmv-shard-00-00.xcqkvui.mongodb.net:27017,ac-n7uglmv-shard-00-01.xcqkvui.mongodb.net:27017,ac-n7uglmv-shard-00-02.xcqkvui.mongodb.net:27017/?ssl=true&replicaSet=atlas-ek872t-shard-0&authSource=admin&retryWrites=true&w=majority`;
+console.log(username, password);
+const URL = `mongodb+srv://${username}:${password}@classic-blog-space.xcqkvui.mongodb.net/?retryWrites=true&w=majority`;
 
 Connection(URL);
