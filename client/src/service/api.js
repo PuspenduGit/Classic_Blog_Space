@@ -3,12 +3,11 @@ import BASE_URL from '../service/helper';
 import { API_NOTIFICATION_MESSAGES, SERVICE_URLS } from '../constants/config';
 import { getAccessToken, getType } from '../utils/common-utils';
 
-
 const API_URL = BASE_URL;
 
 const axiosInstance = axios.create({
     baseURL: API_URL,
-    timeout: 10000, 
+    timeout: 5000, 
     headers: {
         "content-type": "application/json"
     }
@@ -61,7 +60,8 @@ const processResponse = (response) => {
 // If fail -> returns { isError: true, status: string, msg: string, code: int }
 //////////////////////////////
 const ProcessError = async (error) => {
-    if (error.response) {
+    //redirect to error page
+    if (error.response) {       
         // Request made and server responded with a status code 
         // that falls out of the range of 2xx
         if (error.response?.status === 403) {
@@ -86,28 +86,31 @@ const ProcessError = async (error) => {
             //     return Promise.reject(error)
             // }
         } else {
-            console.log("ERROR IN RESPONSE: ", error.toJSON());
+            console.log("ERROR IN REQUEST: ", error.toJSON());
             return {
+                isSuccess: false,
                 isError: true,
-                msg: API_NOTIFICATION_MESSAGES.responseFailure,
-                code: error.response.status
+                msg: API_NOTIFICATION_MESSAGES.requestFailure,
+                code:  400
             }
         }
     } else if (error.request) { 
         // The request was made but no response was received
         console.log("ERROR IN RESPONSE: ", error.toJSON());
         return {
-            isError: true,
-            msg: API_NOTIFICATION_MESSAGES.requestFailure,
-            code: ""
-        }
+          isSuccess: false,
+          isError: true,
+          msg: API_NOTIFICATION_MESSAGES.responseFailure,
+          code: 444
+        };
     } else { 
         // Something happened in setting up the request that triggered an Error
-        console.log("ERROR IN RESPONSE: ", error.toJSON());
+        console.log("ERROR IN SERVER: ", error.toJSON());
         return {
+            isSuccess: false,
             isError: true,
             msg: API_NOTIFICATION_MESSAGES.networkError,
-            code: ""
+            code: 500
         }
     }
 }

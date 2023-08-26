@@ -21,11 +21,13 @@ export const signupuser = async (request,response) => {
 
         await modifiedUser.save();
 
+        console.log(modifiedUser);
+
         return response.status(200).json({
             msg: "User signed up successfully"
         })
     } catch (error) {
-        // console.log(error);
+        console.log(error);
         return response.status(500).json({
             msg: "Something went wrong"
         });
@@ -33,9 +35,9 @@ export const signupuser = async (request,response) => {
 }
 
 export const loginuser = async (request,response) => {
-
+    
     let user = await User.findOne({ username: request.body.username });//returns whole user obejct
-    // console.log(user);
+    console.log(user);
     if(!user){
         return response.status(404).json({
             msg: "User not found"

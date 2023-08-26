@@ -27,7 +27,6 @@ app.listen(PORT, () =>
   )
 );
 
-console.log(username, password);
 const URL = `mongodb+srv://${username}:${password}@classic-blog-space.xcqkvui.mongodb.net/?retryWrites=true&w=majority`;
 
 Connection(URL);

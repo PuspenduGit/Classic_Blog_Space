@@ -1,9 +1,8 @@
 
 import { AppBar, Toolbar, styled } from '@mui/material'; 
 import { Link } from 'react-router-dom';
-
-import { useNavigate } from 'react-router-dom';
-
+import { useContext } from 'react';
+import { DataContext } from '../../context/DataProvider';
 
 const Component = styled(AppBar)`
     background: #FFFFFF;
@@ -20,11 +19,11 @@ const Container = styled(Toolbar)`
 `
 
 const Header = () => {
+    
+    const account = useContext(DataContext);
 
-    const navigate = useNavigate();
+    console.log(account);
 
-    // const logout = async () => navigate('/account');
-        
     return (
         <Component>
             <Container>
@@ -33,6 +32,15 @@ const Header = () => {
                 <Link to='/contact'>CONTACT</Link>
                 <Link to='/account'>LOGOUT</Link>
             </Container>
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'right',
+                    alignItems: 'right',
+                }}
+            >
+                {/* <img src={}/> */}
+            </div>
         </Component>
     )
 }
