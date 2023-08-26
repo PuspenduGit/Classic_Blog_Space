@@ -1,13 +1,13 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ec91ff40-cfe2-4fde-b895-12b2af92c0fb/deploy-status?branch=master)](https://app.netlify.com/sites/classic-blog-space/deploys)
 # Classic_Blog_Space
-Blog website implementing CRUD operations with <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a> authentication
+Blog website implementing CRUD operations with <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a> authentication and <a href="https://developers.google.com/identity/protocols/oauth2">OAuth 2.0</a> for Google Authentication
 
 ### <a href="https://classic-blog-space.netlify.app">Live Link</a>
 
 # Pages
 
 ### Login
-![Screenshot 2023-07-14 134850](https://github.com/PuspenduGit/Classic_Blog_Space/assets/77235824/5ab7d493-6079-445d-bed3-760f85b64b0a)
+![login_page](https://github.com/PuspenduGit/Classic_Blog_Space/assets/77235824/b5997a64-55ba-42d0-98a6-818a478009de)
 
 ### Home
 ![Screenshot from 2023-07-14 00-58-08](https://github.com/PuspenduGit/Classic_Blog_Space/assets/77235824/c07f40dc-3948-4484-8ea5-830ffa17aae4)
