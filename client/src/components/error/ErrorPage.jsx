@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 
-const Error = () => {
+const ErrorPage = () => {
   return (
     <section
       style={{
@@ -13,21 +13,21 @@ const Error = () => {
         <div class="row">
           <div class="col-sm-12 ">
             <div class="col-sm-10 col-sm-offset-1  text-center">
-              <div 
-              style={{
-                backgroundImage: "url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif)",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                height: "400px",
-              }}
-              >
+              <div
+                style={{
+                  backgroundImage:
+                    "url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif)",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  height: "400px",
+                }}>
                 <h1
                   style={{
                     textAlign: "center",
                     fontSize: "80px",
                   }}>
-                    404
-                  </h1>
+                  404
+                </h1>
               </div>
 
               <div
@@ -40,7 +40,7 @@ const Error = () => {
                     fontSize: "30px",
                     textAlign: "center",
                   }}>
-                    Look like you're lost
+                  Look like you're lost
                 </h3>
 
                 <p
@@ -49,10 +49,11 @@ const Error = () => {
                     fontSize: "20px",
                     textAlign: "center",
                   }}>
-                the page you are looking for not avaible!
+                  the page you are looking for not avaible!
                 </p>
 
-                <Link to="/"
+                <Link
+                  to="/"
                   style={{
                     position: "absolute",
                     left: "46%",
@@ -74,9 +75,9 @@ const Error = () => {
       </div>
     </section>
   );
-}
+};
 
-export default Error;
+export default ErrorPage;
 
 
 

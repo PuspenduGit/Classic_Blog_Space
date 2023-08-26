@@ -13,7 +13,7 @@ import Update from './components/create/Update';
 import About from './components/about/About';
 import Contact from './components/contact/Contact';
 import Login from './components/account/Login';
-import Error from './components/error/Error';
+import ErrorPage from './components/error/ErrorPage';
 
 const PrivateRoute = ({ isAuthenticated, ...props }) => {
   const token = sessionStorage.getItem('accessToken');
@@ -74,9 +74,9 @@ function App() {
               <Route path="/contact" element={<Contact />} />
             </Route>
 
-            <Route path="/error" element={<Error />} />
+            <Route path="/error" element={<ErrorPage />} />
 
-            <Route path="*" element={<Error />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </Box>
       </BrowserRouter>
