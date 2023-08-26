@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ec91ff40-cfe2-4fde-b895-12b2af92c0fb/deploy-status?branch=master)](https://app.netlify.com/sites/classic-blog-space/deploys)
 # Classic_Blog_Space
 Blog website implementing CRUD operations with <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a> authentication
 
