@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { Box } from '@mui/material';
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
@@ -15,7 +15,7 @@ import Contact from './components/contact/Contact';
 import Login from './components/account/Login';
 import ErrorPage from './components/error/ErrorPage';
 
-const PrivateRoute = ({ isAuthenticated, ...props }) => {
+const PrivateRoute = ({ isAuthenticated}) => {
   const token = sessionStorage.getItem('accessToken');
   return isAuthenticated && token ? 
     <>
