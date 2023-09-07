@@ -22,10 +22,13 @@ Blog website implementing CRUD operations with <a href="https://en.wikipedia.org
 ![Screenshot 2023-07-14 135146](https://github.com/PuspenduGit/Classic_Blog_Space/assets/77235824/f5b603d4-36c8-4b39-911f-94dc1951c93d)
 
 ## Tech Used 
-| Frontend | Backend |
---- | ---
+**Frontend:**
 
-| ReactJs | NodeJs + ExpressJs + MongoDB |
+<img src="https://img.shields.io/badge/-React-orange?style=for-the-badge&logo=react" alt="React"/>   <img src="https://img.shields.io/badge/-React%20Router-success?style=for-the-badge&logo=reactrouter" alt="React Router"/>   
+
+**Backendend:**
+
+<img src="https://img.shields.io/badge/-Node.js-faf75a?style=for-the-badge&logo=node.js" alt="Node.js"/>   <img src="https://img.shields.io/badge/-express.js-282929?style=for-the-badge&logo=express" alt="Express.js"/>   <img src="https://img.shields.io/badge/-mongodb-f1a7f2?style=for-the-badge&logo=mongodb" alt="MongoDb"/>
 
 ## Hosting 
 <a href="https://www.netlify.com/">Netlify</a> for Frontend. <br>
