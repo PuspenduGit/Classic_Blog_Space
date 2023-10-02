@@ -106,7 +106,7 @@ const Login = ({ isUserAuthenticated }) => {
     // console.log("Encoded JWT ID token: " + response.credential);
     var decoded = jwt_decode(response.credential);
 
-    console.log(decoded);
+    // console.log(decoded);
    
     const googleSignupData = {
       username: decoded.email,

@@ -49,7 +49,7 @@ const ErrorPage = () => {
                     fontSize: "20px",
                     textAlign: "center",
                   }}>
-                  the page you are looking for not avaible!
+                  the page you are looking for is not available!
                 </p>
 
                 <Link

@@ -1,8 +1,8 @@
 
 import { AppBar, Toolbar, styled } from '@mui/material'; 
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import { DataContext } from '../../context/DataProvider';
+// import { useContext } from 'react';
+// import { DataContext } from '../../context/DataProvider';
 
 const Component = styled(AppBar)`
     background: #FFFFFF;
@@ -20,9 +20,9 @@ const Container = styled(Toolbar)`
 
 const Header = () => {
     
-    const account = useContext(DataContext);
+    // const account = useContext(DataContext);
 
-    console.log(account);
+    // console.log(account);
 
     return (
         <Component>

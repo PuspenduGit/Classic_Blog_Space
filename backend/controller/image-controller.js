@@ -1,7 +1,11 @@
 import grid from 'gridfs-stream';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
-const url = '';
+dotenv.config();
+
+// const url = process.env.BASE_URL;
+const url = "https://classicblogspacebackend.onrender.com";
 
 let gfs, gridfsBucket;
 const conn = mongoose.connection;
@@ -14,7 +18,7 @@ conn.once('open', () => {
 });
 
 export const uploadImage = (request, response) => {
-    // console.log(request.file);
+    console.log(request.file);
     if(!request.file){
         return response.status(404).json({message: "File not found"});
     }

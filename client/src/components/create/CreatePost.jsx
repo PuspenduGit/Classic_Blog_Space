@@ -79,8 +79,8 @@ const CreatePost = () => {
         let data = new FormData();
         data.append("name", file.name);
         data.append("file", file);
-        const response = await API.uploadFile(data);
-        post.photo = response.data;
+        let image = await API.uploadFile(data);
+        post.photo = image.data;
       }
     };
     getImage();
