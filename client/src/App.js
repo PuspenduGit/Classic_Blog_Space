@@ -1,31 +1,38 @@
-import { useState } from 'react';
-
-import { Box } from '@mui/material';
-import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import { useState } from "react";
+import { Box } from "@mui/material";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
 
 //components
-import DataProvider from './context/DataProvider';
-import Header from './components/header/Header';
-import Home from './components/home/Home';
-import CreatePost from './components/create/CreatePost';
-import DetailView from './components/details/DetailView';
-import Update from './components/create/Update';
-import About from './components/about/About';
-import Contact from './components/contact/Contact';
-import Login from './components/account/Login';
-import ErrorPage from './components/error/ErrorPage';
+import DataProvider from "./context/DataProvider";
+import Header from "./components/header/Header";
+import Home from "./components/home/Home";
+import CreatePost from "./components/create/CreatePost";
+import DetailView from "./components/details/DetailView";
+import Update from "./components/create/Update";
+import About from "./components/about/About";
+import Contact from "./components/contact/Contact";
+import Login from "./components/account/Login";
+import ErrorPage from "./components/error/ErrorPage";
 
-const PrivateRoute = ({ isAuthenticated}) => {
-  const token = sessionStorage.getItem('accessToken');
-  return isAuthenticated && token ? 
+const PrivateRoute = ({ isAuthenticated }) => {
+  const token = sessionStorage.getItem("accessToken");
+  return isAuthenticated && token ? (
     <>
       <Header />
       <Outlet />
-    </> : <Navigate replace to='/account' />
+    </>
+  ) : (
+    <Navigate replace to="/account" />
+  );
 };
 
 function App() {
-
   const [isAuthenticated, isUserAuthenticated] = useState(false);
 
   return (

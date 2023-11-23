@@ -2,11 +2,19 @@ import mongoose from "mongoose";
 
 const Connection = (URL) => {
   try {
-    console.log('Connecting to database');
-    mongoose.connect(URL, { useNewUrlParser: true });
-    console.log('Database connected successfully');
+    console.log("Connecting to database");
+    mongoose
+      .connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
+      .then(
+        () => {
+          console.log("Database connected successfully");
+        },
+        (error) => {
+          console.log("Database could not be connected : " + error);
+        }
+      );
   } catch (error) {
-    console.log("Error while connecting to database", error);
+    console.log("Error: " + error);
   }
 };
 

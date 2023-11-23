@@ -2,10 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { Box, TextField, Typography, Button, styled } from "@mui/material";
 
 // import dotenv from "dotenv";
-import jwt_decode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import { API } from "../../service/api";
 import { DataContext } from "../../context/DataProvider";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 // console.log(API, "API");
 
 // dotenv.config();
@@ -94,6 +94,8 @@ const defaultLoginData = {
 const Login = ({ isUserAuthenticated }) => {
   const imageURL = "https://i.postimg.cc/QCDsWtqW/webisitelogo.png";
 
+  const location = useLocation();
+
   const [signup, setSignup] = useState(defaultSignupData);
   const [login, setLogin] = useState(defaultLoginData);
   const [accountstate, setAccountState] = useState("login");
@@ -104,10 +106,10 @@ const Login = ({ isUserAuthenticated }) => {
 
   const handleCallbackResponse = (response) => {
     // console.log("Encoded JWT ID token: " + response.credential);
-    var decoded = jwt_decode(response.credential);
+    var decoded = jwtDecode(response.credential);
 
     // console.log(decoded);
-   
+
     const googleSignupData = {
       username: decoded.email,
       name: decoded.name,
@@ -120,14 +122,12 @@ const Login = ({ isUserAuthenticated }) => {
     };
 
     const googleSignup = async () => {
-
       try {
         response = await API.userSignup(googleSignupData);
         console.log(response);
       } catch (error) {
         console.log(error);
       }
-
     };
 
     const googleLogin = async () => {
@@ -135,14 +135,12 @@ const Login = ({ isUserAuthenticated }) => {
       try {
         response = await API.userLogin(googleLoginData);
       } catch (error) {
-        console.log(error);
         error.then((res) => {
-          if(res.code === 400){
-            googleSignup();
-            googleLogin();
+          if (res.code === 400) {
+            // googleSignup();
+            // googleLogin();
             navigate("/");
-          }
-          else if (res.code === 444) {
+          } else if (res.code === 444) {
             navigate("/error");
           }
         });
@@ -180,16 +178,15 @@ const Login = ({ isUserAuthenticated }) => {
     }
 
     // document.getElementById("g_id_onload").style.display = "none";
-
   };
-
 
   useEffect(() => {
     /* global google */
     // console.log(process.env.REACT_APP_GOOGLE_CLIENT_ID);
     google.accounts.id.initialize({
       // client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-      client_id: "645417395837-1thdm6ed2lkrtvr0di88jh4dho54fttk.apps.googleusercontent.com",
+      client_id:
+        "645417395837-1thdm6ed2lkrtvr0di88jh4dho54fttk.apps.googleusercontent.com",
       callback: handleCallbackResponse,
     });
 
@@ -198,15 +195,13 @@ const Login = ({ isUserAuthenticated }) => {
       size: "large",
       text: "continue_with",
       shape: "rectangular",
-      
+
       height: 50,
       width: 340,
     });
 
-    if(accountstate === "login")
-    google.accounts.id.prompt();
-
-  }, [accountstate]);
+    // if (location.pathname === "/account") google.accounts.id.prompt();
+  });
 
   const changeAccountState = () => {
     if (accountstate === "login") {
@@ -246,47 +241,45 @@ const Login = ({ isUserAuthenticated }) => {
     var response;
     try {
       response = await API.userLogin(login);
+      if (response.isSuccess) {
+        setError("");
+        sessionStorage.setItem(
+          "accessToken",
+          `Bearer ${response.data.accessToken}`
+        );
+        sessionStorage.setItem(
+          "refreshToken",
+          `Bearer ${response.data.refreshToken}`
+        );
+
+        setAccount({
+          username: response.data.username,
+          name: response.data.name,
+        });
+
+        isUserAuthenticated(true);
+
+        navigate("/");
+      } else {
+        setError("Invalid Credentials");
+        alert("Invalid Credentials");
+      }
     } catch (error) {
-      console.log(error);
       error.then((res) => {
-        if(res.code === 400){
+        if (res.code === 400) {
           setError("Invalid Credentials");
           alert("Invalid Credentials");
           navigate("/");
-        }
-        else if (res.code === 444) {
+        } else {
           navigate("/error");
-        } 
+          res.send(error);
+        }
       });
     }
-    
-    if (response.isSuccess) {
-      setError("");
-      sessionStorage.setItem(
-        "accessToken",
-        `Bearer ${response.data.accessToken}`
-      );
-      sessionStorage.setItem(
-        "refreshToken",
-        `Bearer ${response.data.refreshToken}`
-      );
-
-      setAccount({
-        username: response.data.username,
-        name: response.data.name,
-      });
-
-      isUserAuthenticated(true);
-
-      navigate("/");
-    } else {
-      setError("Invalid Credentials");
-      alert("Invalid Credentials");
-    }    
   };
 
   useEffect(() => {
-    if(error){
+    if (error) {
       setTimeout(() => {
         setError("");
       }, 3000);
@@ -321,6 +314,7 @@ const Login = ({ isUserAuthenticated }) => {
           <StyledBox2>
             <StyledTextField
               onChange={(e) => onChangeInput(e)}
+              type="text"
               name="username"
               value={login.username}
               variant="standard"
@@ -328,6 +322,7 @@ const Login = ({ isUserAuthenticated }) => {
             />
             <StyledTextField
               name="password"
+              type="password"
               value={login.password}
               onChange={(e) => onChangeInput(e)}
               variant="standard"
@@ -340,7 +335,7 @@ const Login = ({ isUserAuthenticated }) => {
               Login
             </LoginButton>
             <StyledText style={{ textAlign: "center" }}>OR</StyledText>
-            <div id="g_id_onload" data-type="standard" ></div>
+            <div id="g_id_onload" data-type="standard"></div>
             <StyledText style={{ textAlign: "center" }}>OR</StyledText>
             <SignupButton onClick={() => changeAccountState()}>
               Create an account

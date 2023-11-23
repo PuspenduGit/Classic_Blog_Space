@@ -76,17 +76,23 @@ const CreatePost = () => {
   useEffect(() => {
     const getImage = async () => {
       if (file) {
-        let data = new FormData();
+        const data = new FormData();
         data.append("name", file.name);
         data.append("file", file);
-        let image = await API.uploadFile(data);
-        post.photo = image.data;
+        try {
+          const image = await API.uploadFile(data);
+          console.log(image);
+          // post.photo = image.data;
+          setPost({ ...post, photo: image.data });
+        } catch (error) {
+          console.log(error);
+        }
       }
     };
     getImage();
     post.categories = location.search?.split("=")[1] || "All";
     post.username = account.username;
-  }, [file]);
+  },[file]);
 
   const handleChange = (e) => {
     setPost({ ...post, [e.target.name]: e.target.value });
@@ -113,7 +119,6 @@ const CreatePost = () => {
           format="image/png, image/jpeg, image/jpg"
           style={{ display: "none" }}
           onChange={(e) => {
-            e.preventDefault();
             setFile(e.target.files[0]);
           }}
         />
