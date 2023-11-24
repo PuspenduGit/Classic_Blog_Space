@@ -15,7 +15,7 @@ app.use(function (req, res, next) {
   const allowedOrigins = [
     "http://localhost:3000",
     "https://classicblogspacebackend.onrender.com",
-    "https://classic-blog-space.netlify.app",
+    "https://classic-blog-space.vercel.app",
   ];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
