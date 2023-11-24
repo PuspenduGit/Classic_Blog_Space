@@ -37,7 +37,7 @@ const TextStyle = styled(TextareaAutosize)`
 
 const initialValues = {
   name: "",
-  postID: "",
+  postId: "",
   comments: "",
   date: new Date(),
 };
@@ -54,13 +54,14 @@ export const Comments = ({ post }) => {
 
   useEffect(() => {
     const fetchComments = async () => {
+      if(!post._id) return;
       const response = await API.getAllComments(post._id);
       if (response.isSuccess) {
         setComments(response.data);
       }
     };
     fetchComments();
-  }, [toggle, post]);
+  }, [post, toggle]);
 
   const commentChange = (e) => {
     setComment({

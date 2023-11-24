@@ -81,8 +81,6 @@ const CreatePost = () => {
         data.append("file", file);
         try {
           const image = await API.uploadFile(data);
-          console.log(image);
-          // post.photo = image.data;
           setPost({ ...post, photo: image.data });
         } catch (error) {
           console.log(error);

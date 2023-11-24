@@ -74,12 +74,11 @@ const DetailView = () => {
     const getPost = async () => {
       const response = await API.getPostById(id);
       if (response.isSuccess) {
-        console.log(response.data);
         setPost(response.data);
       }
     };
     getPost();
-  }, []);
+  }, [id]);
 
   const deletePost = async () => {
     const response = await API.deletePost(post._id);

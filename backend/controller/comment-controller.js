@@ -15,6 +15,7 @@ export const createComment = async (req, res) => {
 export const getAllComments = async (req, res) => {
     try {
         const comments = await Comment.find({postId : req.params.id});
+        if(!comments) res.status(404).json({msg: "No Comments Found"});
         res.status(200).json(comments);
     } catch (error) {
         res.status(500).json({msg: "Error Occured while fetching comment"},error);
