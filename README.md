@@ -1,8 +1,7 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ec91ff40-cfe2-4fde-b895-12b2af92c0fb/deploy-status?branch=master)](https://app.netlify.com/sites/classic-blog-space/deploys)
 # Classic_Blog_Space
 Blog website implementing CRUD operations with <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a> authentication and <a href="https://developers.google.com/identity/protocols/oauth2">OAuth 2.0</a> for Google Authentication
 
-### <a href="https://classic-blog-space.netlify.app">Live Link</a>
+### [Live Link](https://classic-blog-space.vercel.app/)
 
 # Pages
 
@@ -31,5 +30,4 @@ Blog website implementing CRUD operations with <a href="https://en.wikipedia.org
 <img src="https://img.shields.io/badge/-Node.js-faf75a?style=for-the-badge&logo=node.js" alt="Node.js"/>   <img src="https://img.shields.io/badge/-express.js-282929?style=for-the-badge&logo=express" alt="Express.js"/>   <img src="https://img.shields.io/badge/-mongodb-f1a7f2?style=for-the-badge&logo=mongodb" alt="MongoDb"/>
 
 ## Hosting 
-<a href="https://www.netlify.com/">Netlify</a> for Frontend. <br>
-<a href="https://render.com/">Render</a> for Backend.
+[Vercel](https://vercel.com)
