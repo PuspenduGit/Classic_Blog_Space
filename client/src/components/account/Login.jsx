@@ -137,8 +137,8 @@ const Login = ({ isUserAuthenticated }) => {
       } catch (error) {
         error.then((res) => {
           if (res.code === 400) {
-            // googleSignup();
-            // googleLogin();
+            googleSignup();
+            googleLogin();
             navigate("/");
           } else if (res.code === 444) {
             navigate("/error");
