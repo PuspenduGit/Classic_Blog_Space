@@ -82,7 +82,7 @@ const Update = () => {
       }
     };
     getPost();
-  }, []);
+  },[post]);
 
   useEffect(() => {
     const getImage = async () => {
@@ -104,6 +104,7 @@ const Update = () => {
   };
 
   const updateBlogPost = async () => {
+    console.log(post);
     let response = await API.updatePost(post);
     if (response.isSuccess) {
       navigate(`/details/${id}`);
