@@ -14,7 +14,7 @@ app.use(function (req, res, next) {
   // res.header("Access-Control-Allow-Origin", "*");
   const allowedOrigins = [
     "http://localhost:3000",
-    "https://classicblogspacebackend.onrender.com",
+    "https://classic-blog-space-backend.vercel.app/",
     "https://classic-blog-space.vercel.app",
   ];
   const origin = req.headers.origin;
