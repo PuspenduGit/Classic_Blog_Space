@@ -62,7 +62,7 @@ const initialPost = {
 };
 
 const Update = () => {
-  const location = useLocation();
+  // const location = useLocation();
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -82,7 +82,7 @@ const Update = () => {
       }
     };
     getPost();
-  },[post]);
+  },[post, id]);
 
   useEffect(() => {
     const getImage = async () => {
@@ -96,7 +96,7 @@ const Update = () => {
     };
     getImage();
     post.username = account.username;
-  }, [file]);
+  }, [file, post, account.username]);
 
   const handleChange = (e) => {
     setPost({ ...post, [e.target.name]: e.target.value });
