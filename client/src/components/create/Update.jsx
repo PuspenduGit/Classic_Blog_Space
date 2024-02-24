@@ -95,16 +95,15 @@ const Update = () => {
       }
     };
     getImage();
-    post.categories = location.search?.split("=")[1] || "All";
     post.username = account.username;
   }, [file]);
 
   const handleChange = (e) => {
     setPost({ ...post, [e.target.name]: e.target.value });
+    console.log(post);
   };
 
   const updateBlogPost = async () => {
-    console.log(post);
     let response = await API.updatePost(post);
     if (response.isSuccess) {
       navigate(`/details/${id}`);

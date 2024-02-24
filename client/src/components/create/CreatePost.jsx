@@ -90,7 +90,7 @@ const CreatePost = () => {
     getImage();
     post.categories = location.search?.split("=")[1] || "All";
     post.username = account.username;
-  },[file]);
+  },[file, post, location.search, account.username]);
 
   const handleChange = (e) => {
     setPost({ ...post, [e.target.name]: e.target.value });
