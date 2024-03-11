@@ -1,6 +1,6 @@
 import { styled, Box, Typography } from "@mui/material";
 
-import {addElipsis} from "../../../utils/common-utils";
+import { addElipsis } from "../../../utils/common-utils";
 
 const Container = styled(Box)`
   border: 1px solid #d3cede;
@@ -43,7 +43,7 @@ const Post = ({ post }) => {
     ? post.photo
     : "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=752&q=80";
 
-    console.log(post);
+  // console.log(post);
 
   return (
     <Container>

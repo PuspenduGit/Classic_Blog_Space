@@ -4,12 +4,13 @@ import { API_NOTIFICATION_MESSAGES, SERVICE_URLS } from "../constants/config";
 import { getAccessToken, getType } from "../utils/common-utils";
 
 const API_URL = BASE_URL;
+// console.log("API_URL: ", API_URL);
 
 const axiosInstance = axios.create({
   baseURL: API_URL,
   timeout: 5000,
   headers: {
-    "Accept": "application/json, multipart/form-data",
+    Accept: "application/json, multipart/form-data",
     "Content-type": "application/json",
   },
 });
@@ -126,8 +127,9 @@ for (const [key, value] of Object.entries(SERVICE_URLS)) {
       data: value.method === "DELETE" ? {} : body,
       responseType: value.responseType,
       headers: {
-        "Accept": "application/json, multipart/form-data",
-        "Content-type": key === "uploadFile" ? "multipart/form-data" : "application/json",
+        Accept: "application/json, multipart/form-data",
+        "Content-type":
+          key === "uploadFile" ? "multipart/form-data" : "application/json",
         authorization: getAccessToken(),
       },
       TYPE: getType(value, body),
