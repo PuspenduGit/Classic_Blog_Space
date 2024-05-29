@@ -4,7 +4,7 @@ const Connection = (URL) => {
   try {
     console.log("Connecting to database");
     mongoose
-      .connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
+      .connect(URL)
       .then(
         () => {
           console.log("Database connected successfully");
